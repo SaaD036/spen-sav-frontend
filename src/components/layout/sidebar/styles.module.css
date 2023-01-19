@@ -1,0 +1,22 @@
+.sibebarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+}
+
+.sidebarBox {
+    width: 300px;
+    max-width: 70%;
+}
+
+.sidebarOpenButton {
+    height: 40px;
+    width: 40px;
+}
+
+.sidebarOpenIcon {
+    color: #158901;
+    height: 40px;
+    width: 40px;
+}
