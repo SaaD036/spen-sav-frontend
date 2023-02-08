@@ -14,7 +14,7 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 import styles from './styles.module.css';
 
-function Sidebar() {
+const Sidebar = props => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleDrawer = (anchor, open) => (event) => {
