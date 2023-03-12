@@ -1,0 +1,15 @@
+.customListContainer {
+    border: 1px solid #E6FFE2;
+    border-radius: 10px;
+    margin: 5px 0px;
+}
+
+.listHeader {
+    width: 100%;
+    background-color: #E6FFE2;
+    padding: 10px 5px;
+}
+
+.listBody {
+    padding: 10px 12px;
+}

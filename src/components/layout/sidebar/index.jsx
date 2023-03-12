@@ -77,6 +77,6 @@ const Sidebar = props => {
             </Drawer>
         </div>
     );
-}
+};
 
 export default Sidebar;

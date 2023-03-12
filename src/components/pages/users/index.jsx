@@ -1,42 +1,46 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
 
-import { getAllUsers } from '../../../redux/actions/userAction';
+import { Tab, Tabs } from '@mui/material';
 
-import TabComponent from '../../general/Tabs';
-import CustomList from '../../general/customList';
+import Users from '../../users';
 
-import { getTabItems } from './utilities';
-
+import { tabTypes, tabLabels } from './constants';
 import styles from './styles.module.css';
 
 const UserPage = props => {
-    const {
-        getAllUsers,
-    } = props;
+    const [value, setValue] = useState(tabTypes.ENTRY);
 
-    useEffect(() => {
-        getAllUsers();
-    }, []);
+    const renderTabs = () => {
+        return (
+            <div className={`${styles.tabContainer} center`}>
+                <Tabs
+                    orientation="vertical"
+                    variant="scrollable"
+                    value={value}
+                    onChange={(event, newValue) => setValue(newValue)}
+                    className={styles.tabs}
+                    sx={{
+                        '& button.Mui-selected': { color: '#158901' },
+                    }}
+                    TabIndicatorProps={{
+                        style: { background: '#158901' },
+                    }}
+                >
+                    <Tab label={tabLabels.ENTRY} classes={{ label: { color: '#158901' } }}value={tabTypes.ENTRY} />
+                    <Tab label={tabLabels.COMMENTS} value={tabTypes.COMMENTS} />
+                </Tabs>
+            </div>
+        );
+    };
 
     return (
         <div className='page'>
-            <TabComponent tabs={getTabItems()}/>
+            { renderTabs() }
+            <Users />
         </div>
     );
 };
 
-UserPage.propTypes = {
-    getAllUsers: PropTypes.func,
-};
+UserPage.propTypes = {};
 
-const mapStateToProps = state => ({
-    users: state.users,
-});
-
-const mapDispatchToProps = {
-    getAllUsers,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
+export default UserPage;
