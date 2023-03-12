@@ -11,11 +11,9 @@ export const getAllUsers = () => async dispatch => {
             url: 'http://localhost:8000/api/user',
         });
 
-        console.log('Actions: ', response);
-
         dispatch({
             type: GET_ALL_USER,
-            payload: response,
+            payload: response.data,
         });
     } catch (error) {}
 };
