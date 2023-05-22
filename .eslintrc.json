@@ -18,11 +18,12 @@
     ],
     "rules": {
         "indent": ["error", 4],
-        "quotes": "warn",
+        "quotes": "error",
         "semi": ["error", "always"],
         "comma-dangle": ["error", "always-multiline"],
         "no-unused-vars": "warn",
-        "react/jsx-key": "warn",
-        "react/prop-types": "warn"
+        "react/jsx-key": "off",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off"
     }
 }
