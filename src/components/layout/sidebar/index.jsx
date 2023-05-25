@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
+import { Link } from 'react-router-dom';
+
+import { Box, Drawer, Button, List, Divider, ListItem, ListItemButton } from '@mui/material';
+
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+
+import { sideBarItems } from './utilities';
 
 import styles from './styles.module.css';
 
@@ -45,15 +44,17 @@ const Sidebar = props => {
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
+                {(sideBarItems || []).map((item, index) => (
+                    <Link to={item.route} className='links' onClick={() => setIsSidebarOpen(false)}>
+                        <ListItem key={item.title} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    {<item.icon />}
+                                </ListItemIcon>
+                                <ListItemText primary={item.title} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
         </Box>
