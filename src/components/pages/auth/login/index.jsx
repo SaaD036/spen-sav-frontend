@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -10,7 +10,7 @@ import { login } from '../../../../redux/actions/authAction';
 import styles from './styles.module.css';
 
 const LoginPage = (props) => {
-    const { login, user } = props;
+    const { login } = props;
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -93,10 +93,6 @@ const LoginPage = (props) => {
             </Grid>
         );
     };
-
-    useEffect(() => {
-        console.log('SaaD logged in : ', user);
-    }, [user]);
 
     return (
         <div className={`center ${styles.loginPageWrapper}`}>
