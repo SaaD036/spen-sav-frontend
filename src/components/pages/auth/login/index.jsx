@@ -15,11 +15,13 @@ const LoginPage = (props) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const onLogin = () => {
-        login(email, 'SaaD The Great');
+    const onLogin = async () => {
+        try {
+            await login(email, 'SaaD The Great');
 
-        setEmail();
-        setPassword();
+            setEmail();
+            setPassword();
+        } catch (err) {}
     };
 
     const renderIcon = () => {
@@ -84,7 +86,7 @@ const LoginPage = (props) => {
         return (
             <Grid container justifyContent='end'>
                 <Button
-                    disabled={!email || !password}
+                    // disabled={!email || !password}
                     className={styles.button}
                     onClick={onLogin}
                 >
@@ -98,7 +100,7 @@ const LoginPage = (props) => {
         <div className={`center ${styles.loginPageWrapper}`}>
             <div className={styles.loginCard}>
                 {renderIcon()}
-                {renderInputFields()}
+                {/* {renderInputFields()} */}
                 {renderButton()}
             </div>
         </div>

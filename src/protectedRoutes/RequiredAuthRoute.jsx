@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
+import { getLoggedInUser } from '../utilities/users';
+
 const RequiredAuthRoute = props => {
     const {
         component,
@@ -27,7 +29,7 @@ RequiredAuthRoute.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-    user: state.auth.loggedInUser,
+    user: getLoggedInUser(),
 });
 
 const mapDispatchToProps = {};
