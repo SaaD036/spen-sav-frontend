@@ -4,6 +4,7 @@ import { Tab, Tabs } from '@mui/material';
 
 import Users from '../../users';
 
+import { getLoggedInUser } from '../../../utilities/users';
 import { tabTypes, tabLabels } from './constants';
 import styles from './styles.module.css';
 
@@ -41,6 +42,8 @@ const UserPage = props => {
     );
 };
 
-UserPage.propTypes = {};
+UserPage.propTypes = {
+    loggedInUser: getLoggedInUser(),
+};
 
 export default UserPage;
