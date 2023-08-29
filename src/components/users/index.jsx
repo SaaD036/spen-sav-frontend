@@ -73,8 +73,6 @@ const Users = props => {
                 <b onClick={() => {
                     setUserId(user._id);
                     setIsUserDrawerOpen(true);
-
-                    console.log('Clicked user name : ', user._id);
                 }}>{`${user.firstName} ${user.lastName}`}</b>
                 <VerticalDotIcon className={styles.headerOptionIcon}/>
             </div>
