@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Grid, TextField, Button } from '@mui/material';
 import { PersonPin as LoginIcon } from '@mui/icons-material';
 
-import { login } from '../../../../redux/actions/authAction';
+import { login } from '../../../redux/actions/authAction';
 
 import styles from './styles.module.css';
 
