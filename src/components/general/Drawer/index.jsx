@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Drawer } from '@mui/material';
 
-const GenericDrawer = props => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+import { drawerOpenDirection } from './constant';
 
-    const toggleDrawer = (anchor, open) => (event) => {
+const GenericDrawer = props => {
+    const { children, isDrawerOpen, closeDrawer } = props;
+
+    const toggleDrawer = (anchor) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
 
-        setIsSidebarOpen(open);
+        closeDrawer();
     };
 
     return (
         <div>
             <Drawer
-                anchor='right'
-                open={isSidebarOpen}
+                anchor={drawerOpenDirection.LEFT}
+                open={isDrawerOpen}
                 transitionDuration={250}
-                onClose={toggleDrawer('left', false)}
+                onClose={toggleDrawer()}
             >
-                Hello Man, Fuck Man
+                {children}
             </Drawer>
         </div>
     );
+};
+
+GenericDrawer.propTypes = {
+    children: PropTypes.node.isRequired,
+    isDrawerOpen: PropTypes.bool.isRequired,
+    closeDrawer: PropTypes.func.isRequired,
 };
 
 export default GenericDrawer;
