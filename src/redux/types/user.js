@@ -1,2 +1,3 @@
 export const GET_ALL_USER = 'GET_ALL_USER';
 export const GET_SINGLE_USER = 'GET_SINGLE_USER';
+export const CLEAR_SINGLE_USER = 'CLEAR_SINGLE_USER';

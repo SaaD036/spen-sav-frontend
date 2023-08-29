@@ -6,6 +6,7 @@ import userAPI from '../../apiServices/user.json';
 import {
     GET_ALL_USER,
     GET_SINGLE_USER,
+    CLEAR_SINGLE_USER,
 } from './../types/user';
 
 export const getAllUsers = () => async dispatch => {
@@ -40,4 +41,11 @@ export const getSingleUser = (userId) => async dispatch => {
             payload: response.data,
         });
     } catch (error) {}
+};
+
+export const clearSingleUser = () => dispatch => {
+    dispatch({
+        type: CLEAR_SINGLE_USER,
+        payload: null,
+    });
 };

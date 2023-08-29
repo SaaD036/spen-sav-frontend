@@ -1,6 +1,7 @@
 import {
     GET_ALL_USER,
     GET_SINGLE_USER,
+    CLEAR_SINGLE_USER,
 } from '../types/user';
 
 const initialState = {
@@ -21,6 +22,11 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             user: action.payload.user,
+        };
+    case CLEAR_SINGLE_USER:
+        return {
+            ...state,
+            user: null,
         };
     default:
         return state;

@@ -6,7 +6,7 @@ import { Drawer } from '@mui/material';
 import { drawerOpenDirection } from './constant';
 
 const GenericDrawer = props => {
-    const { children, isDrawerOpen, closeDrawer } = props;
+    const { children, isDrawerOpen, closeDrawer, ...rest } = props;
 
     const toggleDrawer = () => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -23,6 +23,7 @@ const GenericDrawer = props => {
                 open={isDrawerOpen}
                 transitionDuration={250}
                 onClose={toggleDrawer()}
+                {...rest}
             >
                 {children}
             </Drawer>

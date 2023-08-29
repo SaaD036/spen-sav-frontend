@@ -3,13 +3,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import GenericDrawer from '../../Drawer';
+import DrawerComponent from '../../../users/DrawerComponent';
 
-import { getSingleUser } from '../../../../redux/actions/userAction';
-
-import styles from './styles.module.css';
+import { getSingleUser, clearSingleUser } from '../../../../redux/actions/userAction';
 
 const UserDrawer = props => {
-    const { userId, user, isDrawerOpen, closeDrawer, getSingleUser } = props;
+    const {
+        userId,
+        user,
+        isDrawerOpen,
+        closeDrawer,
+        getSingleUser,
+        clearSingleUser,
+    } = props;
+
+    const onCloseDrawer = () => {
+        clearSingleUser();
+        closeDrawer();
+    };
 
     useEffect(() => {
         getSingleUser(userId);
@@ -18,21 +29,30 @@ const UserDrawer = props => {
     return (
         <GenericDrawer
             isDrawerOpen={isDrawerOpen}
-            closeDrawer={closeDrawer}
+            closeDrawer={onCloseDrawer}
+            PaperProps={{
+                sx: {
+                    height: 'calc(100% - 100px)',
+                    top: 50,
+                },
+            }}
         >
-            <div className={styles.userDrawerContainer}>
-                Fucker {user ? `${user.firstName} ${user.lastName}` : userId}
-            </div>
+            {user ? <DrawerComponent user={user} /> : <>Loading data</>}
         </GenericDrawer>
     );
+};
+
+const reduxProps = {
+    user: PropTypes.object,
+    getSingleUser: PropTypes.func,
+    clearSingleUser: PropTypes.func,
 };
 
 UserDrawer.propTypes = {
     userId: PropTypes.string.isRequired,
     isDrawerOpen: PropTypes.bool.isRequired,
     closeDrawer: PropTypes.func.isRequired,
-    getSingleUser: PropTypes.func,
-    user: PropTypes.object,
+    ...reduxProps,
 };
 
 const mapStateToProps = (state) => ({
@@ -41,6 +61,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     getSingleUser,
+    clearSingleUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDrawer);
