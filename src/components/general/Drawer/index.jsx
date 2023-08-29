@@ -8,7 +8,7 @@ import { drawerOpenDirection } from './constant';
 const GenericDrawer = props => {
     const { children, isDrawerOpen, closeDrawer } = props;
 
-    const toggleDrawer = (anchor) => (event) => {
+    const toggleDrawer = () => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
