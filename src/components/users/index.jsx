@@ -19,6 +19,7 @@ import {
 import { getAllUsers } from '../../redux/actions/userAction';
 
 import CustomList from '../general/customList';
+import UserDrawer from '../general/Drawer/UserDrawer';
 
 import { userRole } from './../../constants/user';
 import { getCustomListToRender } from '../../utilities/customListUtilities';
@@ -31,10 +32,25 @@ const Users = props => {
     } = props;
 
     const [name, setName] = useState('');
+    const [userId, setUserId] = useState();
+    const [isUserDrawerOpen, setIsUserDrawerOpen] = useState(false);
 
     const onNameTextChange = e => {
         // setName(e.target.value.trim());
         setName(name);
+    };
+
+    const renderUserDrawer = () => {
+        return (
+            <UserDrawer
+                userId={userId}
+                isDrawerOpen={isUserDrawerOpen}
+                closeDrawer={() => {
+                    setIsUserDrawerOpen(false);
+                    setUserId();
+                }}
+            />
+        );
     };
 
     const renderSearchFields = () => {
@@ -54,7 +70,10 @@ const Users = props => {
     const renderUserListHeader = user => {
         return (
             <div className={styles.userListHeader}>
-                <b>{`${user.firstName} ${user.lastName}`}</b>
+                <b onClick={() => {
+                    setUserId(user._id);
+                    setIsUserDrawerOpen(true);
+                }}>{`${user.firstName} ${user.lastName}`}</b>
                 <VerticalDotIcon className={styles.headerOptionIcon}/>
             </div>
         );
@@ -98,6 +117,7 @@ const Users = props => {
 
     return (
         <div className={styles.usersPageContainer}>
+            {userId && renderUserDrawer()}
             {renderSearchFields()}
             <Container className={styles.userListContainer}>
                 <CustomList

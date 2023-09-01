@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 import Layout from './components/layout';
 
-import LoginPage from './components/pages/auth/login';
-import UsersPage from './components/pages/users';
+import LoginPage from './pages/auth/login';
+import UsersPage from './pages/users';
 
 import RequiredAuthRoute from './protectedRoutes/RequiredAuthRoute';
 import RequiredNotAuthRoute from './protectedRoutes/RequiredNotAuthRoute';

@@ -1,0 +1,10 @@
+{
+    "GET_ALL_USER": {
+        "path": "user",
+        "method": "GET"
+    },
+    "GET_SINGLE_USER": {
+        "path": "user/{userId}",
+        "method": "GET"
+    }
+}

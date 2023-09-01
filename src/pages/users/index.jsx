@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { Tab, Tabs } from '@mui/material';
 
-import Users from '../../users';
+import Users from '../../components/users';
 
-import { getLoggedInUser } from '../../../utilities/users';
+import { getLoggedInUser } from '../../utilities/users';
 import { tabTypes, tabLabels } from './constants';
 import styles from './styles.module.css';
 
