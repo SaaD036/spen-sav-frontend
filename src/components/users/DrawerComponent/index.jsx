@@ -8,7 +8,14 @@ export const UserDrawerComponent = props => {
     const { user } = props;
 
     return (
-        <div><UserInfo name={`${user.firstName} ${user.lastName}`}/></div>
+        <div>
+            <UserInfo
+                firstName={user.firstName}
+                lastName={user.lastName}
+                email={user.email}
+                role={user.role}
+            />
+        </div>
     );
 };
 
