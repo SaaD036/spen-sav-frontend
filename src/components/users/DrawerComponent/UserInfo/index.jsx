@@ -33,7 +33,11 @@ export const UserInfo = props => {
                     <EmailIcon fontSize='small' className={styles.icon} />
                     <div>{email}</div>
                 </div>
-                <Tooltip title={`This user is ${role}`}>
+                <Tooltip
+                    title={`${firstName} ${lastName} is ${role}`}
+                    className={styles.roleIconTooltip}
+                    onClick={() => console.log('Fuck')}
+                >
                     {roleIcon[role]}
                 </Tooltip>
             </div>
