@@ -34,3 +34,7 @@
     color: #158901;
     margin-right: 5px;
 }
+
+.roleIconTooltip {
+    cursor: pointer;
+}
