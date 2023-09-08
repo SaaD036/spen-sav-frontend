@@ -1,5 +1,7 @@
 import { min } from 'lodash';
 
+import { navComponents } from './constants';
+
 export const getAvatarFromUserName = (firstName, lastName = null) => {
     let avatar = '';
 
@@ -10,4 +12,20 @@ export const getAvatarFromUserName = (firstName, lastName = null) => {
     }
 
     return avatar.toUpperCase();
+};
+
+export const getNavComponents = (userId) => {
+    const navComponentsArray = [];
+
+    Object.keys(navComponents).forEach(nav => {
+        // const RenderComponent = navComponents[nav];
+
+        navComponentsArray.push({
+            title: nav,
+            // renderComponent: () => <RenderComponent userId={userId} />,
+            renderComponent: () => <div>{nav}</div>,
+        });
+    });
+
+    return navComponentsArray;
 };
