@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import UserInfo from './UserInfo';
+import Nav from '../../general/Nav';
+
+import { getNavComponents } from '../utilities';
 
 export const UserDrawerComponent = props => {
     const { user } = props;
@@ -15,6 +18,7 @@ export const UserDrawerComponent = props => {
                 email={user.email}
                 role={user.role}
             />
+            <Nav navItems={getNavComponents(user._id)} />
         </div>
     );
 };
