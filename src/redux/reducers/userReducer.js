@@ -2,6 +2,7 @@ import {
     GET_ALL_USER,
     GET_SINGLE_USER,
     CLEAR_SINGLE_USER,
+    GET_USER_COMMENT,
 } from '../types/user';
 
 const initialState = {
@@ -27,6 +28,11 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             user: null,
+        };
+    case GET_USER_COMMENT:
+        return {
+            ...state,
+            userComment: action.payload.comments,
         };
     default:
         return state;

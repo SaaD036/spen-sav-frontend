@@ -6,5 +6,9 @@
     "GET_SINGLE_USER": {
         "path": "user/{userId}",
         "method": "GET"
+    },
+    "GET_USER_COMMENT": {
+        "path": "user/{userId}/comment",
+        "method": "GET"
     }
 }
