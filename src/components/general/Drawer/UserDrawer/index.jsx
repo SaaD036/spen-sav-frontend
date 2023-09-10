@@ -32,9 +32,10 @@ const UserDrawer = props => {
             closeDrawer={onCloseDrawer}
             PaperProps={{
                 sx: {
-                    height: 'calc(100% - 100px)',
+                    height: 'calc(100% - 55px)',
                     top: 50,
                     borderRadius: '0px 10px 10px 0px',
+                    overflow: 'hidden',
                 },
             }}
         >

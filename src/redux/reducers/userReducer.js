@@ -9,6 +9,7 @@ const initialState = {
     users: [],
     user: null,
     totalUser: 0,
+    userComment: [],
 };
 
 const reducer = (state = initialState, action) => {

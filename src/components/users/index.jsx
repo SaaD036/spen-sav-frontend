@@ -40,6 +40,11 @@ const Users = props => {
         setName(name);
     };
 
+    const onUserNameClick = (userId) => {
+        setUserId(userId);
+        setIsUserDrawerOpen(true);
+    };
+
     const renderUserDrawer = () => {
         return (
             <UserDrawer
@@ -70,10 +75,9 @@ const Users = props => {
     const renderUserListHeader = user => {
         return (
             <div className={styles.userListHeader}>
-                <b onClick={() => {
-                    setUserId(user._id);
-                    setIsUserDrawerOpen(true);
-                }}>{`${user.firstName} ${user.lastName}`}</b>
+                <b style={{ cursor: 'pointer' }} onClick={() => onUserNameClick(user._id)}>
+                    {`${user.firstName} ${user.lastName}`}
+                </b>
                 <VerticalDotIcon className={styles.headerOptionIcon}/>
             </div>
         );
