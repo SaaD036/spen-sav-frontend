@@ -1,26 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import GenericTab from '../../components/tabs';
+import GenericTab from '../../components/general/Tabs';
 
 import { getLoggedInUser } from '../../utilities/users';
 import { useQuery } from '../../utilities/url';
 
-import { tabItems } from './constants';
+import { tabItems, tabValueItem } from './constants';
+import styles from './styles.module.css';
 
 const TITLE = 'Entry | Spen-Sav';
 
 const EntryPage = () => {
     const query = useQuery();
-    const tabName = query.get('tab');
+    const tabName = query.get('tab') || tabValueItem.ALL;
+
+    const [activeTab, setActiveTab] = useState(tabName);
 
     useEffect(() => {
         document.title = TITLE;
     }, []);
 
     return (
-        <div>
+        <div className={styles.entryPageContainer}>
             <GenericTab
                 tabItems={tabItems}
+                defaultTab={activeTab}
+                selectedTab={activeTab}
+                onTabSelect={tab => setActiveTab(tab)}
             />
         </div>
     );

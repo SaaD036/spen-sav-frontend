@@ -1,57 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Tabs, Tab, Box } from '@mui/material';
-import { TabPanel, TabContext } from '@mui/lab';
+import { Tab, Tabs } from '@mui/material';
 
 import styles from './styles.module.css';
 
-const TabComponent = props => {
-    const {
-        tabs,
-    } = props;
-    const [value, setValue] = useState('');
+const GenericTab = props => {
+    const { selectedTab, tabItems, onTabSelect } = props;
 
-    const onTabChange = (event, newValue) => {
-        setValue(newValue);
+    const { pathname } = useLocation();
+    const navigate = useNavigate();
+
+    const onClickTabItem = tab => {
+        onTabSelect(tab);
+
+        if (tab !== selectedTab) {
+            navigate(`${pathname}?tab=${tab}`);
+        }
     };
 
-    useEffect(() => {
-        setValue(tabs[0].value || '');
-    }, [tabs]);
-
     return (
-        <Box className={styles.tabs}>
-            <TabContext value={value} className={styles.tabs}>
-                <Tabs
-                    orientation="vertical"
-                    variant="scrollable"
-                    value={value}
-                    onChange={onTabChange}
-                    className={styles.tab}
-                >
-                    {(tabs || []).map((tab, index) => <Tab
-                        label={tab.label}
-                        sx={{
-                            backgroundColor: index % 2 === 0 ? '#F7F7F7' : '#FFFFFF',
-                            margin: '2px 4px',
-                        }}
-                    />)}
-                </Tabs>
-                {(tabs || []).map(tab => {
+        <div className={`${styles.tabContainer} center`}>
+            <Tabs
+                orientation="vertical"
+                variant="scrollable"
+                value={selectedTab}
+                onChange={(event, newValue) => onClickTabItem(newValue)}
+                className={styles.tabs}
+                sx={{
+                    '& button.Mui-selected': { color: '#158901' },
+                }}
+                TabIndicatorProps={{
+                    style: { background: '#158901' },
+                }}
+            >
+                {(tabItems || []).map(item => {
                     return (
-                        <TabPanel index={tab.value}>
-                                Item
-                        </TabPanel>
+                        <Tab
+                            label={item.label}
+                            value={item.value}
+                            onClick={() => onTabSelect(item.value)}
+                        />
                     );
                 })}
-            </TabContext>
-        </Box>
+            </Tabs>
+        </div>
     );
 };
 
-TabComponent.propTypes = {
-    tabs: PropTypes.array,
+GenericTab.propTypes = {
+    tabItems: PropTypes.array.isRequired,
+    onTabSelect: PropTypes.func,
+    selectedTab: PropTypes.string.isRequired,
 };
 
-export default TabComponent;
+export default GenericTab;

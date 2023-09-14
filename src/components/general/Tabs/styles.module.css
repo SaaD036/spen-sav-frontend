@@ -1,8 +1,14 @@
-.tabs {
-    width: 100%;
-}
-
-.tab {
+.tabContainer {
+    height: 100%;
     width: 20%;
     max-width: 300px;
+    min-width: 200px;
+    padding: 0px 10px;
+}
+
+.tabs {
+    width: 100%;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+    padding: 20px 0px;
 }
