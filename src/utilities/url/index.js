@@ -1,3 +1,6 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+
 export const BASE_URL = process.env.NODE_ENV === 'development'
     ? process.env.REACT_APP_DEV_URL
     : process.env.REACT_APP_PROD_URL;
@@ -12,4 +15,10 @@ export const buildURL = (path, variables = {}, params = {}) => {
     });
 
     return url;
+};
+
+export const useQuery = () => {
+    const { search } = useLocation();
+
+    return React.useMemo(() => new URLSearchParams(search), [search]);
 };

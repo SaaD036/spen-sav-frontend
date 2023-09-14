@@ -6,6 +6,7 @@ import Layout from './components/layout';
 
 import LoginPage from './pages/auth/login';
 import UsersPage from './pages/users';
+import EntryPage from './pages/entry';
 
 import RequiredAuthRoute from './protectedRoutes/RequiredAuthRoute';
 import RequiredNotAuthRoute from './protectedRoutes/RequiredNotAuthRoute';
@@ -29,6 +30,11 @@ function App () {
                             exact
                             path='/users'
                             element={ <RequiredAuthRoute component={<UsersPage />} />}
+                        />
+                        <Route
+                            exact
+                            path='/entry'
+                            element={ <RequiredAuthRoute component={<EntryPage />} />}
                         />
                     </Routes>
                 </Layout>
