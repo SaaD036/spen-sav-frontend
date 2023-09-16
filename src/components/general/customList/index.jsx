@@ -9,8 +9,6 @@ const CustomList = props => {
     } = props;
 
     const renderList = () => {
-        console.log(lists);
-
         return (
             <div>
                 {(lists || []).map((item, index) => {

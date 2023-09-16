@@ -7,10 +7,10 @@ import {
     GET_ALL_ENTRY,
 } from './../types/entry';
 
-export const getAllEntries = () => async dispatch => {
+export const getAllEntries = (params = {}) => async dispatch => {
     try {
         const { path, method } = entryAPI.GET_ALL_ENTRY;
-        const URL = buildURL(path);
+        const URL = buildURL(path, {}, params);
 
         const response = await axios({
             method,

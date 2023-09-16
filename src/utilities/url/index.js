@@ -8,10 +8,12 @@ export const BASE_URL = process.env.NODE_ENV === 'development'
 export const buildURL = (path, variables = {}, params = {}) => {
     let url = `${BASE_URL}${path}`;
 
-    console.log('SaaD : ', process.env);
-
     Object.keys(variables).forEach(key => {
         url = url.replace(`{${key}}`, variables[key]);
+    });
+
+    Object.keys(params).forEach((key, index) => {
+        url = index === 0 ? `${url}?${key}=${params[key]}` : `${url}&${key}=${params[key]}`;
     });
 
     return url;

@@ -5,7 +5,7 @@ import GenericTab from '../../components/general/Tabs';
 import { getLoggedInUser } from '../../utilities/users';
 import { useQuery } from '../../utilities/url';
 
-import EntryList from '../../components/entry/entryList';
+import Entry from '../../components/entry';
 
 import { tabItems, tabValueItem } from './constants';
 import styles from './styles.module.css';
@@ -31,7 +31,7 @@ const EntryPage = () => {
                 onTabSelect={tab => setActiveTab(tab)}
             />
             <div className={styles.mainContent}>
-                <EntryList />
+                <Entry selectedTab={activeTab}/>
             </div>
         </div>
     );
