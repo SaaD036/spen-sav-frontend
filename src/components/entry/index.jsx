@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Grid } from '@mui/material';
 
 import EntryList from './entryList';
-import Input from '../general/input';
+import Input from '../general/Input';
 
 import styles from './styles.module.css';
 
