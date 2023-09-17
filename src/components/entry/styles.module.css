@@ -1,7 +1,31 @@
-.filterContainer {
+.topContainer {
     height: 180px;
     display: flex;
     align-items: end;
-    justify-content: end;
+    justify-content: space-between;
+}
+
+.gridContainer {
+    justify-content: space-between;
+}
+
+.filterContainer {
     gap: 10px;
+}
+
+.filterInputs {
+    height: 40px;
+}
+
+@media screen and (max-width: 825px) {
+    .filterInputs {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .filterInputs {
+        width: 250px !important;
+        margin-top: 5px;
+    }
 }

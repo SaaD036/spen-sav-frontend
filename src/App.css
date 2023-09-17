@@ -44,3 +44,10 @@ body {
     text-decoration: none;
     color: black;
 }
+
+.button {
+    padding: 3px 12px !important;
+    background-color: #158901 !important;
+    border-radius: 10px !important;
+    color: white !important;
+}

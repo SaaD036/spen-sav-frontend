@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Button, Grid } from '@mui/material';
+
 import EntryList from './entryList';
 import Input from '../general/input';
 
@@ -11,30 +13,49 @@ const Entry = props => {
 
     const [userName, setUserName] = useState('');
     const [amount, setAmount] = useState();
+    const [openAddEntryModal, setOpenAddEntryModal] = useState(false);
 
     const renderFilters = () => {
         return (
-            <div className={styles.filterContainer}>
+            <Grid className={styles.filterContainer}>
                 <Input
                     label='Amount'
                     value={amount}
-                    style={{ width: '180px' }}
+                    style={{ width: '180px', marginRight: '5px' }}
                     onChange={e => setAmount(e.target.value)}
                     type='number'
+                    className={styles.filterInputs}
                 />
                 <Input
                     label='Search name'
                     value={userName}
                     style={{ width: '250px' }}
                     onChange={e => setUserName(e.target.value)}
+                    className={styles.filterInputs}
                 />
+            </Grid>
+        );
+    };
+
+    const renderTopElements = () => {
+        return (
+            <div className={styles.topContainer}>
+                <Grid container className={styles.gridContainer}>
+                    <Button
+                        className='button'
+                        onClick={() => setOpenAddEntryModal(true)}
+                    >
+                        Add Entry
+                    </Button>
+                    {renderFilters()}
+                </Grid>
             </div>
         );
     };
 
     return (
         <div>
-            {renderFilters()}
+            {renderTopElements()}
             <EntryList
                 amount={amount}
                 name={userName}

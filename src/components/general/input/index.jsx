@@ -6,7 +6,7 @@ import { TextField } from '@mui/material';
 import styles from './styles.module.css';
 
 const Input = props => {
-    const { label, value, ...rest } = props;
+    const { label, value, className, ...rest } = props;
 
     return (
         <TextField
@@ -27,6 +27,7 @@ const Input = props => {
                     focused: styles.notchedOutline,
                     notchedOutline: styles.notchedOutline,
                 },
+                className,
             }}
             onChange={() => console.log()}
             {...rest}
