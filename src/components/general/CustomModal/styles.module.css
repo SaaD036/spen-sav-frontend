@@ -26,3 +26,7 @@
     margin: 10px 8px 10px 0px;
     cursor: pointer;
 }
+
+.childrenContainer {
+    padding: 5px 15px 15px 15px;
+}

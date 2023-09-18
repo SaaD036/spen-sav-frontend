@@ -32,7 +32,9 @@ const CustomModal = props => {
                     <div className={styles.title}>{title}</div>
                     <CancelIcon className={styles.closeIcon} onClick={onClose}/>
                 </div>
-                {children}
+                <div className={styles.childrenContainer}>
+                    {children}
+                </div>
             </div>
         </Modal>
     );
