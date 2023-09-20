@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { DriveFileRenameOutline as EntryIcon } from '@mui/icons-material';
+import { Button } from '@mui/material';
 
 import Input from '../../general/Input';
 import SelectInput from '../../general/Select';
@@ -21,9 +22,12 @@ const selectItems = [
     },
 ];
 
-export const AddEntry = (props) => {
+export const AddEntry = props => {
+    const { closeModal } = props;
+
     const [amount, setAmount] = useState();
     const [type, setType] = useState(entryType.SPENDING);
+    const [date, setDate] = useState(new Date());
 
     const renderEntryIcon = () => {
         return (
@@ -50,22 +54,37 @@ export const AddEntry = (props) => {
         );
     };
 
+    const renderButtonSection = () => {
+        return (
+            <div className={styles.buttonSection}>
+                <Button className='button-cancel' onClick={closeModal}>
+                    Cancel
+                </Button>
+                <Button className='button'>
+                    Save
+                </Button>
+            </div>
+        );
+    };
+
     return (
         <div>
             {renderEntryIcon()}
             <Input
                 label='amount'
                 value={amount}
+                type='number'
                 onChange={e => setAmount(e.target.value)}
                 style={{ marginTop: '20px' }}
             />
             {renderSelectType()}
+            {renderButtonSection()}
         </div>
     );
 };
 
 AddEntry.propTypes = {
-    second: PropTypes.third,
+    closeModal: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({});

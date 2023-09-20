@@ -16,6 +16,18 @@
 }
 
 .icon {
-    font-size: 75px;
+    font-size: 75px !important;
     color: #158901;
+}
+
+.datePicker {
+    margin-top: 10px;
+}
+
+.buttonSection {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }

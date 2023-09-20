@@ -25,7 +25,7 @@ const Entry = props => {
                 open={openAddEntryModal}
                 onClose={() => setOpenAddEntryModal(false)}
             >
-                <AddEntry />
+                <AddEntry closeModal={() => setOpenAddEntryModal(false)} />
             </CustomModal>
         );
     };
