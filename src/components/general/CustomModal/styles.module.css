@@ -4,6 +4,7 @@
     min-width: 450px;
     max-width: 750px;
     max-height: 80vh;
+    overflow-y: auto;
     border-radius: 10px;
 }
 
@@ -25,4 +26,8 @@
     color: #158901;
     margin: 10px 8px 10px 0px;
     cursor: pointer;
+}
+
+.childrenContainer {
+    padding: 5px 15px 15px 15px;
 }

@@ -5,7 +5,10 @@ import { Button, Grid } from '@mui/material';
 
 import EntryList from './entryList';
 import Input from '../general/Input';
+import CustomModal from '../general/CustomModal';
+import AddEntry from './addEntry';
 
+import { addEntryModalTitle } from './constant';
 import styles from './styles.module.css';
 
 const Entry = props => {
@@ -14,6 +17,18 @@ const Entry = props => {
     const [userName, setUserName] = useState('');
     const [amount, setAmount] = useState();
     const [openAddEntryModal, setOpenAddEntryModal] = useState(false);
+
+    const renderAddEntryModal = () => {
+        return (
+            <CustomModal
+                title={addEntryModalTitle}
+                open={openAddEntryModal}
+                onClose={() => setOpenAddEntryModal(false)}
+            >
+                <AddEntry closeModal={() => setOpenAddEntryModal(false)} />
+            </CustomModal>
+        );
+    };
 
     const renderFilters = () => {
         return (
@@ -55,6 +70,7 @@ const Entry = props => {
 
     return (
         <div>
+            {renderAddEntryModal()}
             {renderTopElements()}
             <EntryList
                 amount={amount}

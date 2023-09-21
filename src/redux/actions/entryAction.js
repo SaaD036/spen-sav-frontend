@@ -23,3 +23,16 @@ export const getAllEntries = (params = {}) => async dispatch => {
         });
     } catch (error) {}
 };
+
+export const createEntry = (data) => async dispatch => {
+    try {
+        const { path, method } = entryAPI.GET_ALL_ENTRY;
+        const URL = buildURL(path);
+
+        await axios({
+            method,
+            url: URL,
+            data,
+        });
+    } catch (error) {}
+};
