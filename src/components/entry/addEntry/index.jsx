@@ -8,6 +8,8 @@ import { Button } from '@mui/material';
 import Input from '../../general/Input';
 import SelectInput from '../../general/Select';
 
+import { createEntry } from '../../../redux/actions/entryAction';
+
 import { entryType } from '../../../constants/entry';
 import styles from './styles.module.css';
 
@@ -23,11 +25,18 @@ const selectItems = [
 ];
 
 export const AddEntry = props => {
-    const { closeModal } = props;
+    const { closeModal, createEntry } = props;
 
     const [amount, setAmount] = useState();
     const [type, setType] = useState(entryType.SPENDING);
     const [date, setDate] = useState(new Date());
+
+    const disableSaveButton = () => {
+        const isAmountValid = !isNaN(parseInt(amount)) && parseInt(amount) > 0;
+        const isTypeValid = (type || '').length > 0 && (type === entryType.SPENDING || type === entryType.EARNING);
+
+        return !(isAmountValid && isTypeValid);
+    };
 
     const renderEntryIcon = () => {
         return (
@@ -60,7 +69,7 @@ export const AddEntry = props => {
                 <Button className='button-cancel' onClick={closeModal}>
                     Cancel
                 </Button>
-                <Button className='button'>
+                <Button className='button' disabled={disableSaveButton()}>
                     Save
                 </Button>
             </div>
@@ -89,6 +98,8 @@ AddEntry.propTypes = {
 
 const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+    createEntry,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddEntry);
