@@ -18,7 +18,7 @@ import {
 
 import { getAllUsers } from '../../redux/actions/userAction';
 
-import CustomList from '../general/customList';
+import CustomList from '../general/CustomList';
 import UserDrawer from '../general/Drawer/UserDrawer';
 
 import { userRole } from './../../constants/user';

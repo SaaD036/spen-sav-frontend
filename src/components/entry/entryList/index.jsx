@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import CustomList from '../../general/customList';
+import CustomList from '../../general/CustomList';
 
 import { getAllEntries } from '../../../redux/actions/entryAction';
 

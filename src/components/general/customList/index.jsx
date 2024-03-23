@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CustomListItem from './customListItem';
+import CustomListItem from './CustomListItem';
 
 const CustomList = props => {
     const {
