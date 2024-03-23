@@ -6,7 +6,7 @@ import { Tab, Tabs } from '@mui/material';
 
 import styles from './styles.module.css';
 
-const GenericTab = props => {
+const CustomTab = props => {
     const { selectedTab, tabItems, onTabSelect } = props;
 
     const { pathname } = useLocation();
@@ -49,10 +49,10 @@ const GenericTab = props => {
     );
 };
 
-GenericTab.propTypes = {
+CustomTab.propTypes = {
     tabItems: PropTypes.array.isRequired,
     onTabSelect: PropTypes.func,
     selectedTab: PropTypes.string.isRequired,
 };
 
-export default GenericTab;
+export default CustomTab;

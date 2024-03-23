@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import GenericTab from '../../components/general/Tabs';
+import CustomTab from '../../components/general/CustomTabs';
 
 import { getLoggedInUser } from '../../utilities/users';
 import { useQuery } from '../../utilities/url';
@@ -24,7 +24,7 @@ const EntryPage = () => {
 
     return (
         <div className={styles.entryPageContainer}>
-            <GenericTab
+            <CustomTab
                 tabItems={tabItems}
                 defaultTab={activeTab}
                 selectedTab={activeTab}
