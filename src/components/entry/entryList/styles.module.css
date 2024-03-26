@@ -4,3 +4,14 @@
     align-items: end;
     justify-content: end;
 }
+
+.entryBody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.entryItemWrapper {
+    display: flex;
+    align-items: center;
+}

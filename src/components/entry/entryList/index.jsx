@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import CustomList from '../../general/CustomList';
+import LoadingOverlay from '../../general/LoadingOverlay';
+import EntryListBody from './EntryListBody';
 
 import { getAllEntries } from '../../../redux/actions/entryAction';
 
@@ -11,8 +13,12 @@ import { getCustomListToRender } from '../../../utilities/customListUtilities';
 const EntryList = props => {
     const { amount, name, type, entries, getAllEntries } = props;
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const loadEntryData = async (filter = {}) => {
+        setIsLoading(true);
         await getAllEntries(filter);
+        setIsLoading(false);
     };
 
     useEffect(() => {
@@ -39,13 +45,16 @@ const EntryList = props => {
 
     return (
         <div>
-            <CustomList
-                lists={getCustomListToRender(
-                    entries,
-                    entry => <div>Total : {entry.amount}</div>,
-                    entry => <div>List body here</div>,
-                )}
-            />
+            {isLoading
+                ? <LoadingOverlay />
+                : <CustomList
+                    lists={getCustomListToRender(
+                        entries,
+                        entry => <div>Total : {entry.amount}</div>,
+                        entry => <EntryListBody entry={entry}/>,
+                    )}
+                />
+            }
         </div>
     );
 };
