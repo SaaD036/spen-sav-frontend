@@ -18,12 +18,11 @@ export const getNavComponents = (userId) => {
     const navComponentsArray = [];
 
     Object.keys(navComponents).forEach(nav => {
-        // const RenderComponent = navComponents[nav];
+        const RenderComponent = navComponents[nav];
 
         navComponentsArray.push({
             title: nav,
-            // renderComponent: () => <RenderComponent userId={userId} />,
-            renderComponent: () => <div>{nav}</div>,
+            renderComponent: () => <RenderComponent userId={userId} />,
         });
     });
 

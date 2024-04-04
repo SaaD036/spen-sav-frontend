@@ -1,4 +1,6 @@
+import CommentsDrawer from './DrawerComponent/commentsDrawer';
+
 export const navComponents = {
-    Entries: <></>,
-    Comments: <></>,
+    Entries: CommentsDrawer,
+    Comments: CommentsDrawer,
 };

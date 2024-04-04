@@ -1,0 +1,10 @@
+{
+    "GET_ALL_ENTRY": {
+        "path": "entry",
+        "method": "GET"
+    },
+    "CREATE_ENTRY": {
+        "path": "entry",
+        "method": "POST"
+    }
+}

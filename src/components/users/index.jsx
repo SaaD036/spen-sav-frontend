@@ -18,7 +18,7 @@ import {
 
 import { getAllUsers } from '../../redux/actions/userAction';
 
-import CustomList from '../general/customList';
+import CustomList from '../general/CustomList';
 import UserDrawer from '../general/Drawer/UserDrawer';
 
 import { userRole } from './../../constants/user';
@@ -38,6 +38,11 @@ const Users = props => {
     const onNameTextChange = e => {
         // setName(e.target.value.trim());
         setName(name);
+    };
+
+    const onUserNameClick = (userId) => {
+        setUserId(userId);
+        setIsUserDrawerOpen(true);
     };
 
     const renderUserDrawer = () => {
@@ -70,10 +75,9 @@ const Users = props => {
     const renderUserListHeader = user => {
         return (
             <div className={styles.userListHeader}>
-                <b onClick={() => {
-                    setUserId(user._id);
-                    setIsUserDrawerOpen(true);
-                }}>{`${user.firstName} ${user.lastName}`}</b>
+                <b style={{ cursor: 'pointer' }} onClick={() => onUserNameClick(user._id)}>
+                    {`${user.firstName} ${user.lastName}`}
+                </b>
                 <VerticalDotIcon className={styles.headerOptionIcon}/>
             </div>
         );

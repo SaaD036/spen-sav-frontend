@@ -42,7 +42,9 @@ const Nav = props => {
     return (
         <div className={styles.navContainer} {...rest}>
             {renderNavItems()}
-            <div>{navItem && navItem.renderComponent()}</div>
+            <div className={styles.renderNavComponent}>
+                {navItem && navItem.renderComponent()}
+            </div>
         </div>
     );
 };

@@ -20,6 +20,7 @@
         "indent": ["error", 4],
         "quotes": "error",
         "semi": ["error", "always"],
+        "eqeqeq": "warn",
         "comma-dangle": ["error", "always-multiline"],
         "no-unused-vars": "warn",
         "react/jsx-key": "off",
