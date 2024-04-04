@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CustomListItem from './customListItem';
+import CustomListItem from './CustomListItem';
 
 const CustomList = props => {
     const {
@@ -9,8 +9,6 @@ const CustomList = props => {
     } = props;
 
     const renderList = () => {
-        console.log(lists);
-
         return (
             <div>
                 {(lists || []).map((item, index) => {

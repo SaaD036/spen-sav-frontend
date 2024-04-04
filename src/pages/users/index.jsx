@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Tab, Tabs } from '@mui/material';
 
@@ -7,6 +7,8 @@ import Users from '../../components/users';
 import { getLoggedInUser } from '../../utilities/users';
 import { tabTypes, tabLabels } from './constants';
 import styles from './styles.module.css';
+
+const TITLE = 'Users | Spen-Sav';
 
 const UserPage = props => {
     const [value, setValue] = useState(tabTypes.ENTRY);
@@ -33,6 +35,10 @@ const UserPage = props => {
             </div>
         );
     };
+
+    useEffect(() => {
+        document.title = TITLE;
+    }, []);
 
     return (
         <div className='page'>

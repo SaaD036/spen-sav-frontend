@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,8 @@ import { PersonPin as LoginIcon } from '@mui/icons-material';
 import { login } from '../../../redux/actions/authAction';
 
 import styles from './styles.module.css';
+
+const TITLE = 'Login | Spen-Sav';
 
 const LoginPage = (props) => {
     const { login } = props;
@@ -95,6 +97,10 @@ const LoginPage = (props) => {
             </Grid>
         );
     };
+
+    useEffect(() => {
+        document.title = TITLE;
+    }, []);
 
     return (
         <div className={`center ${styles.loginPageWrapper}`}>

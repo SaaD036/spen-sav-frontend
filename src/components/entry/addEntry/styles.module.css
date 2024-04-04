@@ -1,0 +1,33 @@
+.entryContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.entryType {
+    margin-top: 10px;
+}
+
+.iconContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.icon {
+    font-size: 75px !important;
+    color: #158901;
+}
+
+.datePicker {
+    margin-top: 10px;
+}
+
+.buttonSection {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

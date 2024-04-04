@@ -18,6 +18,6 @@ export const sideBarItems = [
     {
         title: 'Entries',
         icon: EntryIcon,
-        rotes: '/entries',
+        route: '/entry',
     },
 ];

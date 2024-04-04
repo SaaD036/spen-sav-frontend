@@ -7,18 +7,32 @@ import Nav from '../../general/Nav';
 
 import { getNavComponents } from '../utilities';
 
+const style = {
+    drawerContainer: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'none',
+    },
+    navContainer: {
+        flexGrow: 1,
+    },
+};
+
 export const UserDrawerComponent = props => {
     const { user } = props;
 
     return (
-        <div>
+        <div style={style.drawerContainer}>
             <UserInfo
                 firstName={user.firstName}
                 lastName={user.lastName}
                 email={user.email}
                 role={user.role}
             />
-            <Nav navItems={getNavComponents(user._id)} />
+            <div style={style.navContainer}>
+                <Nav navItems={getNavComponents(user._id)} />
+            </div>
         </div>
     );
 };

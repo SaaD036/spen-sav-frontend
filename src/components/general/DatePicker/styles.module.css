@@ -1,0 +1,10 @@
+.datePicker {
+    height: 40px;
+    border: 1px solid #158901;
+    max-height: 200px;
+    padding: 0px 0px 0px 10px;
+}
+
+.datePicker:focus-visible {
+    outline: none;
+}
