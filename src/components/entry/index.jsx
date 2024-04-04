@@ -69,14 +69,16 @@ const Entry = props => {
     };
 
     return (
-        <div>
+        <div className={styles.container}>
             {renderAddEntryModal()}
             {renderTopElements()}
-            <EntryList
-                amount={amount}
-                name={userName}
-                type={selectedTab}
-            />
+            <div className={styles.entryLists}>
+                <EntryList
+                    amount={amount}
+                    name={userName}
+                    type={selectedTab}
+                />
+            </div>
         </div>
     );
 };

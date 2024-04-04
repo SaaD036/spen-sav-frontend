@@ -1,0 +1,14 @@
+.menuItemsWrapper {
+    border-radius: 2px;
+}
+
+.menuItemsWrapper:hover {
+    background-color: #158901;
+    color: white;
+    cursor: pointer;
+}
+
+.menuItems {
+    padding: 10px 5px;
+    margin: 0px 10px;
+}

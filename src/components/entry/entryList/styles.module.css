@@ -4,3 +4,27 @@
     align-items: end;
     justify-content: end;
 }
+
+.entryHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerOptionIcon {
+    color: #158901;
+    padding: 1px;
+    margin-right: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.entryBody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.entryItemWrapper {
+    display: flex;
+    align-items: center;
+}
