@@ -2,16 +2,12 @@ import React from 'react';
 
 import { Backdrop } from '@mui/material';
 
-import ComponentOverlay from './ComponentOverlay';
+import styles from './styles.module.css';
 
 const LoadingOverlay = () => {
     return (
-        <Backdrop
-            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={true}
-            onClick={() => {}}
-        >
-            <ComponentOverlay />
+        <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={true}>
+            <div className={styles.loader}></div>
         </Backdrop>
     );
 };
